@@ -44,55 +44,16 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Controller example</h1>  
+        <h1>Services example</h1>  
         <p></p>
       </div>
     </div>
 
     <div class="container" ng-app="angularDemoApp">
       <!-- Example row of columns -->
-      <div class="row" ng-controller="GreetingController" ng-init="name='Chandler'">
-        Below text is from controllers $scope.greeting:
-        <h1>{{ greeting }}</h1>
-        <hr/>
-        <div class="col-md-12">
-            Enter your name: <input type="text" ng-model="name"/> <button ng-click="youSuckFunction(name)">Click me</button>
-            <p>This text is coming from youSuckFunction: <i>{{ suckingMessage }}!!</i></p>
-        </div>
-        <hr/>
-        <h3>Another example</h3>
-        <input type="number" ng-init="a=3" ng-model="a"/> x <input type="number" ng-init="b=5" ng-model="b"/> = {{ multiply(a,b) }}
-        <hr/>
-        <div class="row">
-            <div class="col-lg-4">
-                <h3>Array example using ng-repeat</h3>
-                <ul>
-                    <li ng-repeat="item in mylist">{{ item }}</li>
-                </ul>
-            </div>
-            <div class="col-lg-4">
-                <h3>Array of objects example</h3>
-                <p><small>This example uses ng-cloak. So you won't see curly braces code in table</small></p>
-                <table class="table table-striped table-bordered">
-                    <tr>
-                        <th>Superhero</th>
-                        <th>True identity</th>
-                    </tr>
-                    <tr ng-repeat="superhero in superheroes" ng-cloak="">
-                        <td>{{ superhero.name }}</td>
-                        <td>{{ superhero.identity }}</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="col-lg-4">
-                <h3>Hide-show using ng-show</h3>
-                Enter text: <input type="text" ng-model="mytext"/>
-                <p><small>If you enter "Show me magic", it'll show do a magic trick!! </small></p>
-                <h4 ng-show="mytext=='Show me magic'">Bhangar magic trick here</h4>
-                <h4 ng-hide="mytext=='Show me magic'">See here for the magic</h4>
-            </div>
-            
-        </div>
+      <div class="row" ng-controller="ServiceDemoController">
+          <p>Clicking this button calls giveMeMassage() of controller which in turn uses custom service named 'massage'. </p>
+          <button ng-click="giveMeMassage()">Give me a massage!</button>
       </div>
 
       <hr>
@@ -110,6 +71,6 @@
     <script src="js/vendor/bootstrap.min.js"></script>
 
     <script src="js/main.js"></script>
-    <script src="js/app/controllers/GreetingController.js"></script>
+    <script src="js/app/controllers/ServiceDemoController.js"></script>
     </body>
 </html>
