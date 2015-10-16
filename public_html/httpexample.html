@@ -37,46 +37,44 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/angulardemo/">AngularJS Demo</a>
-        </div>        
+        </div>
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Valar Morghulis everyone!</h1>
-        <p>This is a demo application which is basically my attempt to learn AngularJS the proper way. And that proper way is try everything properly. (Try to read this in English accent. It's so cool!!) That's why I've cared to write this lengthy fucking description.</p>
-        <p><a class="btn btn-primary btn-lg" href="https://github.com/rayate2410/angulardemo" target="_blank" role="button">View on Github</a></p>
+        <h1>Http Example - $http.get()</h1>  
+        <p>This list of names comes from <a href="http://www.w3schools.com/angular/customers.php" target="_blank">this API.</a></p>
       </div>
     </div>
 
-    <div class="container">
+    <div class="container" ng-app="angularDemoApp">
       <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-            <h2><a href="data-binding.html">1. Data Binding</a></h2>          
+        <div class="row" ng-controller="HttpController" ng-cloak="">
+            <table class='table table-striped'>
+                <tr>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Country</th>
+                </tr>                
+                <tr ng-repeat="customer in customers">
+                    <td>{{ customer.Name }}</td>
+                    <td>{{ customer.City }}</td>
+                    <td>{{ customer.Country }}</td>
+                </tr>
+            </table>
+        
         </div>
-        <div class="col-md-4">
-            <h2><a href="controller.html">2. Controller</a></h2>          
-        </div>
-        <div class="col-md-4">
-            <h2><a href="services.html">3. Services</a></h2>          
-        </div>
-        <div class="col-md-4">
-            <h2><a href="filters.html">4. Filters</a></h2>          
-        </div>
-        <div class="col-md-4">
-            <h2><a href="httpexample.html">5. $http</a></h2>          
-        </div>
-      </div>
+    
 
-      <hr>
+    <hr>
 
       <footer>
         <p>&copy; Aakash Rayate</p>
       </footer>
     </div> <!-- /container -->        
-        
+    
     <script src="js/vendor/angular.js/angular.min.js"></script>
     <script src="js/vendor/angular.js/angular-resource.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
@@ -84,6 +82,7 @@
 
     <script src="js/vendor/bootstrap.min.js"></script>
 
-    <script src="js/main.js"></script>        
+    <script src="js/main.js"></script>
+    <script src="js/app/controllers/HttpController.js"></script>
     </body>
 </html>
