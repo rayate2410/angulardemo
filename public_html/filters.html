@@ -37,43 +37,56 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="/angulardemo/">AngularJS Demo</a>
-        </div>        
+        </div>
       </div>
     </nav>
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <div class="jumbotron">
       <div class="container">
-        <h1>Valar Morghulis everyone!</h1>
-        <p>This is a demo application which is basically my attempt to learn AngularJS the proper way. And that proper way is try everything properly. (Try to read this in English accent. It's so cool!!) That's why I've cared to write this lengthy fucking description.</p>
-        <p><a class="btn btn-primary btn-lg" href="https://github.com/rayate2410/angulardemo" target="_blank" role="button">View on Github</a></p>
+        <h1>Filters example</h1>  
+        <p><a href="https://docs.angularjs.org/api/ng/filter" target="_blank">More filters</a></p>
       </div>
     </div>
 
-    <div class="container">
-      <!-- Example row of columns -->
-      <div class="row">
-        <div class="col-md-4">
-            <h2><a href="data-binding.html">1. Data Binding</a></h2>          
-        </div>
-        <div class="col-md-4">
-            <h2><a href="controller.html">2. Controller</a></h2>          
-        </div>
-        <div class="col-md-4">
-            <h2><a href="services.html">3. Services</a></h2>          
-        </div>
-        <div class="col-md-4">
-            <h2><a href="filters.html">4. Filters</a></h2>          
-        </div>
-      </div>
-
-      <hr>
-
-      <footer>
-        <p>&copy; Aakash Rayate</p>
-      </footer>
-    </div> <!-- /container -->        
+    <div class="container" ng-app="angularDemoApp">
+        <div class="row">
+            <div class='col-md-4'>
+                <h4>Currency filter</h4>
+                <p>Amount: <input type="number" ng-init="amount=29.99" ng-model="amount"/></p>
+                <p ng-cloak="">Amount entered is <b>{{ amount|currency }}</b></p>
+            </div>
+            <div class='col-md-4'>
+                <h4>Lowercase-uppercase filters</h4>
+                <p>Text: <input type="text" ng-init="text='tHis Is sParTa'" ng-model="text"/></p>
+                <p ng-cloak="">Lowercase is <b>{{ text|lowercase }}</b></p>
+                <p ng-cloak="">Uppercase is <b>{{ text|uppercase }}</b></p>
+            </div>
+            <div class='col-md-4'>
+                <h4>Text filters</h4>
+                <p>Country: <input type="text" ng-model="countryName"/></p>
+                <div ng-init="countries=['India', 'Pakistan', 'Bangistan', 'Fucking England', 'Murica']">
+                    <ul>
+                        <li ng-repeat="country in countries | filter:countryName">
+                            {{ country }}
+                        </li>
+                    </ul>
+                       
+                    
+                </div>
+                
+            </div>
         
+            
+        </div>
+    
+        <hr>
+
+        <footer>
+          <p>&copy; Aakash Rayate</p>
+        </footer>
+    </div> <!-- /container -->        
+    
     <script src="js/vendor/angular.js/angular.min.js"></script>
     <script src="js/vendor/angular.js/angular-resource.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
@@ -81,6 +94,7 @@
 
     <script src="js/vendor/bootstrap.min.js"></script>
 
-    <script src="js/main.js"></script>        
+    <script src="js/main.js"></script>
+    <script src="js/app/controllers/GreetingController.js"></script>
     </body>
 </html>
